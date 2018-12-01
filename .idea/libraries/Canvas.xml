@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Canvas">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src/CanvasNT" />
+      <root url="file://$PROJECT_DIR$/src/CanvasNT/Math" />
+    </SOURCES>
+  </library>
+</component>
