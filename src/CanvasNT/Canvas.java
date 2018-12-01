@@ -5,7 +5,7 @@ class Canvas {
     int width = 20;
     int height = 20;
     String[] pixels;
-
+    String color = " ";
     public Canvas(int width, int height) {
         if (width < 0 || height < 0) {
             System.out.println("CanvasNT can't have negative width or height. width: " + width + ", height: " + height);
@@ -19,15 +19,20 @@ class Canvas {
         this.height = height;
 
     }
-    public void point(int x, int y, String character) {
+
+    void color(String color){
+        this.color = color + " ";
+    }
+
+    public void point(int x, int y) {
         if (x < width && y < height && x > -1 && y > -1) {
-            pixels[y * width + x] = character;
+            pixels[y * width + x] = color;
         }
     }
 
     public void background(String character) {
         for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = character;
+            pixels[i] = character + " ";
         }
     }
 
@@ -44,6 +49,8 @@ class Canvas {
         System.out.print("\033[H\033[2J");
     }
 
+    public void stroke(){}
+
     public void begin(int framerate, FrameListener listener) {
 
         Thread t = new Thread() {
@@ -53,7 +60,7 @@ class Canvas {
                     listener.onFrame(Canvas.this);
                     clear();
 
-                    String buffer = "";
+                    String buffer = "\n";
                     for (int y = 0; y < height; y++) {
                         for (int x = 0; x < width; x++) {
 
@@ -61,6 +68,7 @@ class Canvas {
                         }
                         buffer += "\n";
                     }
+                    buffer += "\n\n";
                     System.out.print(buffer);
                     sleepThread(1000 / framerate, this, listener);
                 }

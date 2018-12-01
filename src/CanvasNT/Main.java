@@ -21,23 +21,24 @@ class Main extends Canvas implements FrameListener{
 
     void setup(){
 
-        background("# ");
+        background("#");
 
         begin(30, this);
     }
 
     @Override
     public void onFrame(Canvas canv){
-        background("# ");
-        point(x, y, "  ");
-
-        x+=xvel;
-        y+=yvel;
-        if(x > width || x < 0){
+        background("#");
+        color(" ");
+        point(x, y);
+        if(x >= width || x < 0){
             xvel *= -1;
-        }if(y > height || y < 0){
+        }if(y >= height || y < 0){
             yvel *= -1;
         }
+        x+=xvel;
+        y+=yvel;
+
 
     }
     @Override
