@@ -9,12 +9,12 @@ Create ASCII Animations on the command line using Java
   
   Canvas c = new Canvas(40, 20);
   
-  // After begin, the onFrame method will be called every frame
+  // After begin, the draw method will be called every frame
   
   c.begin(framerate, new FrameListener(){
   
     @Override
-    public void onFrame(){
+    public void draw(){
     
       // do stuff...
       background("#");
@@ -44,7 +44,7 @@ Create ASCII Animations on the command line using Java
     }
     
     @Override
-    public void onFrame(Canvas canv){
+    public void draw(Canvas canv){
         background("#");
         color(" ");
         point(x, y);
