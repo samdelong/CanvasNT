@@ -58,3 +58,6 @@ Create ASCII Animations on the command line using Java
   }
 
 ```
+### Running the example in the src/CanvasNT directory should give you something like this:
+<a href="https://gyazo.com/7af117e6aa6effb0417e353de9f0ba7d"><img src="https://i.gyazo.com/7af117e6aa6effb0417e353de9f0ba7d.gif" alt="Image from Gyazo" width="630"/></a>
+
