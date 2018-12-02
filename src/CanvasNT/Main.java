@@ -38,7 +38,7 @@ class Main extends Canvas implements FrameListener{
 //        }
 //        x+=xvel;
 //        y+=yvel;
-        rect(5,5,5,5);
+        rect(5,5,100,10);
 
     }
     @Override

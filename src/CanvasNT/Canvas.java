@@ -33,12 +33,13 @@ class Canvas {
             h = height-y;
         }
 
-        for(int i = x; i < w; i++){
-            for(int j = y; j < h; j++){
-                pixels[j*w+i] = color;
+        w += x;
+        h += y;
+        for(int j = y; j < h; j++){
+            for(int i = x; i < w; i++){
+                point(i, j);
             }
         }
-
     }
 
     void color(String color){
