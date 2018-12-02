@@ -57,7 +57,7 @@ class Canvas {
             @Override
             public void run() {
                 while (true) {
-                    listener.onFrame(Canvas.this);
+                    listener.draw(Canvas.this);
                     clear();
 
                     String buffer = "\n";

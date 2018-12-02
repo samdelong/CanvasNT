@@ -27,7 +27,7 @@ class Main extends Canvas implements FrameListener{
     }
 
     @Override
-    public void onFrame(Canvas canv){
+    public void draw(Canvas canv){
         background("#");
         color(" ");
         point(x, y);
