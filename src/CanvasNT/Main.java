@@ -30,15 +30,15 @@ class Main extends Canvas implements FrameListener{
     public void draw(Canvas canv){
         background("#");
         color(" ");
-        point(x, y);
-        if(x >= width || x < 0){
-            xvel *= -1;
-        }if(y >= height || y < 0){
-            yvel *= -1;
-        }
-        x+=xvel;
-        y+=yvel;
-
+//        point(x, y);
+//        if(x >= width || x < 0){
+//            xvel *= -1;
+//        }if(y >= height || y < 0){
+//            yvel *= -1;
+//        }
+//        x+=xvel;
+//        y+=yvel;
+        rect(5,5,5,5);
 
     }
     @Override

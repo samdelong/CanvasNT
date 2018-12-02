@@ -20,6 +20,27 @@ class Canvas {
 
     }
 
+    void rect(int x, int y, int w, int h){
+        if(x < 0){
+            x = 0;
+        }if(y < 0){
+            y = 0;
+        }
+        if(w + x > width){
+            w = width - x;
+        }
+        if(h + y > height){
+            h = height-y;
+        }
+
+        for(int i = x; i < w; i++){
+            for(int j = y; j < h; j++){
+                pixels[j*w+i] = color;
+            }
+        }
+
+    }
+
     void color(String color){
         this.color = color + " ";
     }
