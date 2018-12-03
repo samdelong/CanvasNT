@@ -1,11 +1,11 @@
 package CanvasNT;
-
-class Canvas {
+public class Canvas {
 
     int width = 20;
     int height = 20;
     String[] pixels;
-    String color = " ";
+    String stroke = " ";
+    String fill = " ";
     public Canvas(int width, int height) {
         if (width < 0 || height < 0) {
             System.out.println("CanvasNT can't have negative width or height. width: " + width + ", height: " + height);
@@ -17,6 +17,13 @@ class Canvas {
         pixels = new String[width * height];
         this.width = width;
         this.height = height;
+
+    }
+
+    void putPoint(int x, int y, String col){
+      if (x < width && y < height && x > -1 && y > -1) {
+          pixels[y * width + x] = col;
+      }
 
     }
 
@@ -37,18 +44,27 @@ class Canvas {
         h += y;
         for(int j = y; j < h; j++){
             for(int i = x; i < w; i++){
-                point(i, j);
+                if(j == y || j == h-1 || i == x || i == w-1){
+                  putPoint(i, j, stroke);
+                }else{
+                  putPoint(i, j, fill);
+
+                }
             }
         }
     }
 
-    void color(String color){
-        this.color = color + " ";
+    void fill(String fill){
+      this.fill = fill + " ";
+    }
+
+    void stroke(String stroke){
+        this.stroke = stroke + " ";
     }
 
     public void point(int x, int y) {
         if (x < width && y < height && x > -1 && y > -1) {
-            pixels[y * width + x] = color;
+            pixels[y * width + x] = stroke;
         }
     }
 
@@ -67,8 +83,10 @@ class Canvas {
         }
     }
 
+    
+
     public static void clear() {
-        System.out.print("\033[H\033[2J");
+        System.out.print("\033[H\033[2Jcool");
     }
 
     public void stroke(){}
@@ -82,7 +100,7 @@ class Canvas {
                     listener.draw(Canvas.this);
                     clear();
 
-                    String buffer = "\n";
+                    String buffer = "\r\n";
                     for (int y = 0; y < height; y++) {
                         for (int x = 0; x < width; x++) {
 

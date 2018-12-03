@@ -1,14 +1,13 @@
 package CanvasNT;
-
 class Main extends Canvas implements FrameListener{
 
-    int xvel = 1;
+    int xvel = 2;
     int yvel = 1;
-    int x = 1;
-    int y = 10;
+    int x = 0;
+    int y = 0;
 
     Main(){
-        super(40,20);
+        super(37,20);
 
     }
 
@@ -28,17 +27,19 @@ class Main extends Canvas implements FrameListener{
 
     @Override
     public void draw(Canvas canv){
-        background("#");
-        color(" ");
-//        point(x, y);
-//        if(x >= width || x < 0){
-//            xvel *= -1;
-//        }if(y >= height || y < 0){
-//            yvel *= -1;
-//        }
-//        x+=xvel;
-//        y+=yvel;
-        rect(5,5,100,10);
+        background("/");
+        stroke("B");
+        fill(" ");
+
+       //point(x, y);
+       if(x >= width - 4 || x < 0){
+           xvel *= -1;
+       }if(y >= height - 4 || y < 0){
+           yvel *= -1;
+       }
+       x+=xvel;
+       y+=yvel;
+        rect(x,y,5,5);
 
     }
     @Override
