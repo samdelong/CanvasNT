@@ -1,4 +1,5 @@
 package CanvasNT;
+import java.util.Random;
 public class Canvas {
 
     int width = 20;
@@ -20,6 +21,16 @@ public class Canvas {
         this.width = width;
         this.height = height;
 
+    }
+
+    int random(int min, int max){
+        Random r = new Random();
+        return r.nextInt(max - min) + min;
+    }
+
+    int random(int max){
+        Random r = new Random();
+        return r.nextInt(max);
     }
 
     void putPoint(int x, int y, String col){

@@ -8,6 +8,11 @@ public class SVector{
         this.y = y;
     }
 
+    public void add(SVector v){
+        x += v.x;
+        y += v.y;
+    }
+
     public float mag(){
 
         return (float) Math.sqrt((x*x + y*y));
