@@ -28,6 +28,38 @@ Create ASCII Animations on the command line using Java
 
 ```
 
+# Doc
+
+There are a few methods you can use to create graphics
+
+```java
+
+// Clears screen with character
+void background(String character);
+
+// Draw line from (x, y) to (x1, y1), determined by stroke()
+void line(int x, int y, int x1, int y1);
+
+// Draw point, determined by stroke()
+void point(int x, int y);
+
+// Draw rect, inside determined by fill(), outline determined by stroke()
+void rect(int x, int y, int width, int height);
+
+// Set fill and stroke values
+void fill(String character);
+void stroke(Strin character);
+
+// Sets stroke / fill to background
+void noStroke();
+void noFill();
+
+
+
+
+```
+
+
 ```java
 
   // You can also extend your class, and implement the frameListener...
