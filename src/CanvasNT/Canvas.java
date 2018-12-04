@@ -6,6 +6,8 @@ public class Canvas {
     String[] pixels;
     String stroke = " ";
     String fill = " ";
+    String bgc = "# ";
+    
     public Canvas(int width, int height) {
         if (width < 0 || height < 0) {
             System.out.println("CanvasNT can't have negative width or height. width: " + width + ", height: " + height);
@@ -45,8 +47,9 @@ public class Canvas {
         for(int j = y; j < h; j++){
             for(int i = x; i < w; i++){
                 if(j == y || j == h-1 || i == x || i == w-1){
-                  putPoint(i, j, stroke);
-                }else{
+                    putPoint(i, j, stroke);
+                }
+                else{
                   putPoint(i, j, fill);
 
                 }
@@ -54,12 +57,52 @@ public class Canvas {
         }
     }
 
+
+    // Bresenham Line Algorithm - thanks to https://www.geeksforgeeks.org/bresenhams-line-generation-algorithm/
+    void line(int x1, int y1, int x2, int y2)
+
+    {
+        if(x2 < x1){
+            int t = x2;
+            x2 = x1;
+            x1 = t;
+        }
+        if(y2 < y1){
+            int t = y2;
+            y2 = y1;
+            y1 = t;
+        }
+        int m_new = 2 * (y2 - y1);
+        int slope_error_new = m_new - (x2 - x1);
+
+        for (int x = x1, y = y1; x <= x2; x++)
+        {
+            point(x, y);
+            slope_error_new += m_new;
+
+            if (slope_error_new >= 0)
+            {
+                y++;
+                slope_error_new -= 2 * (x2 - x1);
+            }
+        }
+    }
+
+
     void fill(String fill){
-      this.fill = fill + " ";
+      this.fill = fill;
+    }
+
+    void noFill(){
+        this.fill = bgc;
     }
 
     void stroke(String stroke){
-        this.stroke = stroke + " ";
+        this.stroke = stroke;
+    }
+
+    void noStroke(){
+        this.stroke = bgc;
     }
 
     public void point(int x, int y) {
@@ -69,8 +112,9 @@ public class Canvas {
     }
 
     public void background(String character) {
+        bgc = character;
         for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = character + " ";
+            pixels[i] = bgc;
         }
     }
 
@@ -86,10 +130,9 @@ public class Canvas {
     
 
     public static void clear() {
-        System.out.print("\033[H\033[2Jcool");
+        //System.out.print("\[2J");
+        System.out.print("\033[H\033[2J");
     }
-
-    public void stroke(){}
 
     public void begin(int framerate, FrameListener listener) {
 
@@ -104,7 +147,7 @@ public class Canvas {
                     for (int y = 0; y < height; y++) {
                         for (int x = 0; x < width; x++) {
 
-                            buffer += (pixels[y * width + x]);
+                            buffer += (pixels[y * width + x]) + " ";
                         }
                         buffer += "\n";
                     }

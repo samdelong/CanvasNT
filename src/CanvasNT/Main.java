@@ -27,10 +27,11 @@ class Main extends Canvas implements FrameListener{
 
     @Override
     public void draw(Canvas canv){
-        background("/");
-        stroke("B");
-        fill(" ");
-
+        background("!");
+        stroke("W");
+        fill("C");
+        line(1,1,10,20);
+        line(width, height, 0, 0);
        //point(x, y);
        if(x >= width - 4 || x < 0){
            xvel *= -1;
