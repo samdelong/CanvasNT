@@ -8,7 +8,7 @@ public class Canvas {
     String stroke = " ";
     String fill = " ";
     String bgc = "# ";
-    
+
     public Canvas(int width, int height) {
         if (width < 0 || height < 0) {
             System.out.println("CanvasNT can't have negative width or height. width: " + width + ", height: " + height);
@@ -22,6 +22,8 @@ public class Canvas {
         this.height = height;
 
     }
+
+
 
     int random(int min, int max){
         Random r = new Random();
@@ -138,7 +140,7 @@ public class Canvas {
         }
     }
 
-    
+
 
     public static void clear() {
         //System.out.print("\[2J");

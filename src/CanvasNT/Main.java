@@ -1,7 +1,7 @@
 package CanvasNT;
 class Main extends Canvas implements FrameListener{
 
-    int xvel = 2;
+    int xvel = 1;
     int yvel = 1;
     int x = 0;
     int y = 0;
@@ -31,23 +31,15 @@ class Main extends Canvas implements FrameListener{
 
     @Override
     public void draw(Canvas canv){
-        background("!");
-        stroke("W");
-        fill("C");
+        background("$");
+        stroke(" ");
+        fill("~");
         for(Bounce bo : b){
             bo.update();
         }
         // line(1,1,10,20);
         // line(width, height, 0, 0);
         //point(x, y);
-        if(x >= width - 4 || x < 0){
-            xvel *= -1;
-        }if(y >= height - 4 || y < 0){
-            yvel *= -1;
-        }
-        x+=xvel;
-        y+=yvel;
-        rect(x,y,2,2);
 
     }
     @Override
@@ -55,7 +47,7 @@ class Main extends Canvas implements FrameListener{
         e.printStackTrace();
     }
 
-    class Bounce{
+class Bounce{
 
     int x;
     int y;
@@ -68,9 +60,9 @@ class Main extends Canvas implements FrameListener{
     }
 
     public void update(){
-         if(x >= width - 4 || x < 0){
+         if(x >= width || x < 0){
             xvel *= -1;
-        }if(y >= height - 4 || y < 0){
+        }if(y >= height || y < 0){
             yvel *= -1;
         }
         x+=xvel;
