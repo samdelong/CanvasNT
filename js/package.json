@@ -1,0 +1,22 @@
+{
+  "name": "canvasnt",
+  "version": "1.0.0",
+  "description": "Create realtime ascii animations in the browser",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samdelong/CanvasNT.git"
+  },
+  "author": "Sam DeLong <samdelong9@gmail.com> (https://samdelong.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samdelong/CanvasNT/issues"
+  },
+  "homepage": "https://github.com/samdelong/CanvasNT#readme"
+}
