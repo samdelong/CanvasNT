@@ -2,14 +2,15 @@ package CanvasNT;
 import java.util.Random;
 public class Canvas {
 
-    int width = 20;
-    int height = 20;
+    float width = 20;
+    float height = 20;
     String[] pixels;
     String stroke = " ";
     String fill = " ";
     String bgc = "# ";
 
     public Canvas(int width, int height) {
+
         if (width < 0 || height < 0) {
             System.out.println("CanvasNT can't have negative width or height. width: " + width + ", height: " + height);
             CanvasException e = new CanvasException();
@@ -25,24 +26,23 @@ public class Canvas {
 
 
 
-    int random(int min, int max){
-        Random r = new Random();
-        return r.nextInt(max - min) + min;
+    float random(float min, float max){
+
+        return min + ((float) Math.random()) * (max - min);
     }
 
-    int random(int max){
-        Random r = new Random();
-        return r.nextInt(max);
+    float random(float max){
+        return ((float) Math.random()) * (max);
     }
 
-    void putPoint(int x, int y, String col){
+    void putPoint(float x, float y, String col){
       if (x < width && y < height && x > -1 && y > -1) {
-          pixels[y * width + x] = col;
+          pixels[(int) y * (int) width + (int) x] = col;
       }
 
     }
 
-    void rect(int x, int y, int w, int h){
+    void rect(float x, float y, float w, float h){
         if(x < 0){
             x = 0;
         }if(y < 0){
@@ -57,8 +57,8 @@ public class Canvas {
 
         w += x;
         h += y;
-        for(int j = y; j < h; j++){
-            for(int i = x; i < w; i++){
+        for(float j = y; j < h; j++){
+            for(float i = x; i < w; i++){
                 if(j == y || j == h-1 || i == x || i == w-1){
                     putPoint(i, j, stroke);
                 }
@@ -72,23 +72,23 @@ public class Canvas {
 
 
     // Bresenham Line Algorithm - thanks to https://www.geeksforgeeks.org/bresenhams-line-generation-algorithm/
-    void line(int x1, int y1, int x2, int y2)
+    void line(float x1, float y1, float x2, float y2)
 
     {
         if(x2 < x1){
-            int t = x2;
+            float t = x2;
             x2 = x1;
             x1 = t;
         }
         if(y2 < y1){
-            int t = y2;
+            float t = y2;
             y2 = y1;
             y1 = t;
         }
-        int m_new = 2 * (y2 - y1);
-        int slope_error_new = m_new - (x2 - x1);
+        float m_new = 2 * (y2 - y1);
+        float slope_error_new = m_new - (x2 - x1);
 
-        for (int x = x1, y = y1; x <= x2; x++)
+        for (float x = x1, y = y1; x <= x2; x++)
         {
             point(x, y);
             slope_error_new += m_new;
@@ -118,9 +118,9 @@ public class Canvas {
         this.stroke = bgc;
     }
 
-    public void point(int x, int y) {
+    public void point(float x, float y) {
         if (x < width && y < height && x > -1 && y > -1) {
-            pixels[y * width + x] = stroke;
+            pixels[(int) y * (int) width + (int) x] = stroke;
         }
     }
 
@@ -160,7 +160,7 @@ public class Canvas {
                     for (int y = 0; y < height; y++) {
                         for (int x = 0; x < width; x++) {
 
-                            buffer += (pixels[y * width + x]) + " ";
+                            buffer += (pixels[y * (int) width + x]) + " ";
                         }
                         buffer += "\n";
                     }

@@ -1,10 +1,10 @@
 package CanvasNT;
 class Main extends Canvas implements FrameListener{
 
-    int xvel = 1;
-    int yvel = 1;
-    int x = 0;
-    int y = 0;
+    float xvel = 1;
+    float yvel = 1;
+    float x = 0;
+    float y = 0;
     Bounce[] b;
     Main(){
         super(37,20);
@@ -49,12 +49,14 @@ class Main extends Canvas implements FrameListener{
 
 class Bounce{
 
-    int x;
-    int y;
-    int xvel = 1;
-    int yvel = 1;;
+    float x;
+    float y;
+    float xvel = 1;
+    float yvel = 1;;
 
     Bounce(){
+        xvel = random(-2f,2f);
+        yvel = random(-2f,2f);
         x = random(width);
         y = random(height);
     }
