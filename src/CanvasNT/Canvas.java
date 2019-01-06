@@ -1,5 +1,5 @@
 package CanvasNT;
-import java.util.Random;
+import java.lang.Math;
 public class Canvas {
 
     float width = 20;
@@ -136,7 +136,7 @@ public class Canvas {
             thread.sleep(millis);
         } catch (InterruptedException e) {
             listener.onError(e);
-            thread.stop();
+            
         }
     }
 
