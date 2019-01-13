@@ -1,4 +1,3 @@
 javac ./src/CanvasNT/*.java
-
-java  -cp ./src/ CanvasNT/Main
 clear
+java  -cp ./src/ CanvasNT/Main
