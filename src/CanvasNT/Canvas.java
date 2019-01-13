@@ -90,7 +90,7 @@ public class Canvas {
 
         for (float x = x1, y = y1; x <= x2; x++)
         {
-            point(x, y);
+            putPoint(x, y, stroke);
             slope_error_new += m_new;
 
             if (slope_error_new >= 0)
@@ -134,9 +134,8 @@ public class Canvas {
     public static void sleepThread(long millis, Thread thread, FrameListener listener) {
         try {
             thread.sleep(millis);
-        } catch (InterruptedException e) {
-            listener.onError(e);
-            
+        } catch (InterruptedException ignored) {
+
         }
     }
 

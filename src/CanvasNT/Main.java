@@ -32,20 +32,19 @@ class Main extends Canvas implements FrameListener{
     @Override
     public void draw(Canvas canv){
         background("$");
-        stroke(" ");
+        stroke("+");
         fill("~");
+        rect(0,0, width, height);
+        stroke("@");
         for(Bounce bo : b){
             bo.update();
         }
         // line(1,1,10,20);
         // line(width, height, 0, 0);
-        //point(x, y);
+        // point(x, y);
 
     }
-    @Override
-    public void onError(InterruptedException e){
-        e.printStackTrace();
-    }
+
 
 class Bounce{
 
