@@ -1,6 +1,8 @@
 # CanvasNT
 Create ASCII Animations on the command line using Java
 
+FOR A REGULARLY UPDATED VERSION: https://repl.it/@samdelong/Canvasnt
+
 # Usage
 
 ```java
